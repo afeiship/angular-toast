@@ -1,0 +1,24 @@
+{
+  "name": "angular-toast",
+  "description": "A light simple toast like `IOS/Android system Toast widget`,based on angularjs &amp; sass.",
+  "main": "dist/angular-toast.js",
+  "authors": [
+    "afei"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "next"
+  ],
+  "homepage": "https://github.com/afeiship/angular-toast",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src"
+  ]
+}

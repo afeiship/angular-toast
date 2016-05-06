@@ -1,0 +1,14 @@
+{
+  "name": "angular-toast",
+  "version": "0.0.0",
+  "description": "A light simple toast like `IOS/Android system Toast widget`,based on angularjs &amp; sass.",
+  "homepage": "https://github.com/afeiship/angular-toast",
+  "author": {
+    "name": "afei",
+    "email": "1290657123@qq.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
