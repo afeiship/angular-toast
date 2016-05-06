@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TestApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="../dist/css/toast.css"/>
+</head>
+<body class="MainCtrl">
+
+<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="../dist/js/angular-toast.js"></script>
+<script type="text/javascript">
+  angular.module('TestApp', ['toast'])
+    .controller('MainCtrl', [function (toast) {
+      console.log('init main ctrl!');
+      console.log(toast);
+    }]);
+</script>
+</body>
+</html>
