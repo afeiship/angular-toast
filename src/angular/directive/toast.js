@@ -13,6 +13,11 @@ ToastModule
 
         //init:
         scope.visible = false;
+
+
+        function _createInstance(){
+
+        }
       }]
     };
   }]);
