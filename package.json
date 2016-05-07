@@ -8,6 +8,12 @@
     "email": "1290657123@qq.com"
   },
   "license": "MIT",
+  "keywords": [
+    "angular",
+    "toast",
+    "ionic",
+    "sass"
+  ],
   "devDependencies": {
     "del": "~2.0.2",
     "gulp": "^3.9.1",
