@@ -4,3 +4,6 @@ A light simple toast like `IOS/Android system Toast widget`,based on angularjs &
 
 ##start:
 + bower install && npm install
+
+##build
++ gulp
