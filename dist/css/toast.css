@@ -1,5 +1,5 @@
 /**toast Start**/
-.widget-toast {
+.ng-widget-toast {
   padding: 10px;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.6);
@@ -15,12 +15,12 @@
   transition: all 0.3s;
 }
 
-.widget-toast[data-visible=true] {
+.ng-widget-toast[data-visible=true] {
   opacity: 1;
   z-index: 3;
 }
 
-.widget-toast[data-visible=false] {
+.ng-widget-toast[data-visible=false] {
   opacity: 0;
   z-index: -1;
   top: 52%;

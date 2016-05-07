@@ -3,7 +3,7 @@ ToastModule
     return {
       restrict: 'E',
       transclude: true,
-      template: '<div class="widget-toast" data-visible="{{visible}}" ng-transclude></div>',
+      template: '<div class="ng-widget-toast" data-visible="{{visible}}" ng-transclude></div>',
       scope: {
         visible: '='
       },

@@ -1,12 +1,16 @@
 /* eslint no-unused-vars:0 */
-var ToastModule = angular.module('toast', []);
+var ToastModule = angular.module('toast', []),
+  extend = angular.extend,
+  forEach = angular.forEach,
+  jqLite = angular.element,
+  noop = angular.noop;
 
 ToastModule
   .directive('toast', [function () {
     return {
       restrict: 'E',
       transclude: true,
-      template: '<div class="widget-toast" data-visible="{{visible}}" ng-transclude></div>',
+      template: '<div class="ng-widget-toast" data-visible="{{visible}}" ng-transclude></div>',
       scope: {
         visible: '='
       },
@@ -16,6 +20,22 @@ ToastModule
 
         //init:
         scope.visible = false;
+
+
+        function _createInstance(){
+
+        }
       }]
     };
   }]);
+
+ToastModule.factory('ngToast', ['$rootScope', function ($rootScope) {
+  return {
+    show: ngToast
+  };
+
+
+  function ngToast(inOptions) {
+
+  }
+}]);
