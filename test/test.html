@@ -14,19 +14,20 @@
   </style>
 </head>
 <body class="MainCtrl">
-
-<div class="ng-widget-toast" data-visible="true">
-  测试通过!
-</div>
+<button style="width:100%;background: #eee;padding:20px;" ng-click="show()">Show Toast</button>
 
 <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="../dist/js/angular-toast.js"></script>
 <script type="text/javascript">
-  angular.module('TestApp', ['toast'])
-    .controller('MainCtrl', [function (toast) {
-      console.log('init main ctrl!');
-      console.log(toast);
-    }]);
+  var TestModule = angular.module('TestApp', ['toast'])
+    .controller('MainCtrl', function ($scope, ngToast) {
+      console.log(ngToast);
+      $scope.show = function () {
+        ngToast.show({
+          msg: 'show Toast!'
+        });
+      };
+    });
 </script>
 </body>
 </html>
