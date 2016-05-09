@@ -25,3 +25,6 @@ var TestModule = angular.module('TestApp', ['toast'])
 
 ```
 
+##resouces:
++ http://weui.github.io/weui/#/toast
+

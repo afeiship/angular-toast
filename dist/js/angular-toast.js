@@ -10,8 +10,7 @@ ToastModule
     return {
       restrict: 'E',
       transclude: true,
-      template: '<div class="mask-transparent"></div>' +
-      '<div id="widget-toast {{cssClass}}" class="ng-widget-toast" data-visible="{{visible}}" ng-bind-html="msg"></div>',
+      template: '<div id="widget-toast {{cssClass}}" class="ng-widget-toast" data-visible="{{visible}}" ng-bind-html="msg"></div>',
       scope: true
     };
   }]);
