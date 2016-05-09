@@ -1,35 +1,53 @@
-ToastModule.factory('ngToast', ['$rootScope', '$timeout', function ($rootScope, $timeout) {
-  return {
-    show: ngToast
-  };
+ToastModule.factory('ngToast', [
+  '$rootScope',
+  '$timeout',
+  '$compile',
+  '$sce',
+  function ($rootScope, $timeout, $compile, $sce) {
 
+    var scope, element;
+    initial();
 
-  function ngToast(inOptions) {
-    var scope = $rootScope.$new(true);
-
-    //init default options:
-    var options = extend(scope, {
-      interval: 1000,
-      template: 'You toast content!',
-      visible: false
-    }, inOptions || {});
-
-    scope.show = function (inTemplate) {
-      _createInstance();
-      scope.template = inTemplate;
-      scope.visible = true;
+    return {
+      init: initial,
+      show: ngToast,
+      destroy: destroy
     };
 
-    scope.close = function () {
-      $timeout(function () {
-        scope.visible = false;
-      }, options.interval);
-    };
+    function initial() {
+      scope = extend($rootScope.$new(true), {
+        interval: 2000,
+        msg: $sce.trustAsHtml('You toast <b>msg</b>!'),
+        visible: false
+      });
 
-
-    function _createInstance() {
-      var element = jqLite('#widget-toast');
+      element = scope.element = $compile('<toast></toast>')(scope);
       jqLite(document.body).append(element);
     }
-  }
-}]);
+
+    function ngToast(inOptions) {
+
+      //init default options:
+      var options = extend(scope, inOptions || {});
+      scope.show = function () {
+        scope.msg = $sce.trustAsHtml(options.msg);
+        scope.visible = true;
+        scope.close();
+      };
+
+      scope.close = function () {
+        $timeout(function () {
+          scope.visible = false;
+        }, options.interval);
+      };
+
+
+      scope.show();
+    }
+
+    function destroy() {
+      scope.$destroy();
+      element.remove();
+    }
+
+  }]);

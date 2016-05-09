@@ -13,7 +13,7 @@
     }
   </style>
 </head>
-<body class="MainCtrl">
+<body ng-controller="MainCtrl">
 <button style="width:100%;background: #eee;padding:20px;" ng-click="show()">Show Toast</button>
 
 <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
@@ -21,10 +21,9 @@
 <script type="text/javascript">
   var TestModule = angular.module('TestApp', ['toast'])
     .controller('MainCtrl', function ($scope, ngToast) {
-      console.log(ngToast);
       $scope.show = function () {
         ngToast.show({
-          msg: 'show Toast!'
+          msg: '<b>v</b>asfdjsldafj<em style="color:#f00;">I am safed</em>!'
         });
       };
     });
