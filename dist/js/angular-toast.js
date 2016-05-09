@@ -10,7 +10,7 @@ ToastModule
     return {
       restrict: 'E',
       transclude: true,
-      template: '<div id="widget-toast" class="ng-widget-toast" data-visible="{{visible}}" ng-bind-html="msg"></div>',
+      template: '<div id="widget-toast {{cssClass}}" class="ng-widget-toast" data-visible="{{visible}}" ng-bind-html="msg"></div>',
       scope: true
     };
   }]);
@@ -34,6 +34,7 @@ ToastModule.factory('ngToast', [
     function initial() {
       scope = extend($rootScope.$new(true), {
         interval: 2000,
+        cssClass:'',
         msg: _trustAsHtml('You toast <b>msg</b>!'),
         visible: false
       });

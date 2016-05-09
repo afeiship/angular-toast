@@ -17,6 +17,7 @@ ToastModule.factory('ngToast', [
     function initial() {
       scope = extend($rootScope.$new(true), {
         interval: 2000,
+        cssClass:'',
         msg: _trustAsHtml('You toast <b>msg</b>!'),
         visible: false
       });

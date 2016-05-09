@@ -17,7 +17,8 @@ var TestModule = angular.module('TestApp', ['toast'])
     .controller('MainCtrl', function ($scope, ngToast) {
       $scope.show = function () {
         ngToast.show({
-          msg: 'Cool toast!<i class="icon">icon herer!</i>'
+          cssClass:'customizeClass',
+          msg: '<b>v</b>asfdjsldafj<em style="color:#f00;">I am safed</em>!'
         });
       };
     });

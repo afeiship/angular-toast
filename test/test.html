@@ -23,6 +23,7 @@
     .controller('MainCtrl', function ($scope, ngToast) {
       $scope.show = function () {
         ngToast.show({
+          cssClass:'customizeClass',
           msg: '<b>v</b>asfdjsldafj<em style="color:#f00;">I am safed</em>!'
         });
       };
