@@ -23,6 +23,12 @@ ToastModule.factory('ngToast', [
   function ($rootScope, $timeout, $compile, $sce) {
 
     var scope, element;
+    var defaults = {
+      interval: 2000,
+      cssClass: '',
+      msg: _trustAsHtml('You toast <b>msg</b>!'),
+      visible: false
+    };
     initial();
 
     return {
@@ -32,12 +38,7 @@ ToastModule.factory('ngToast', [
     };
 
     function initial() {
-      scope = extend($rootScope.$new(true), {
-        interval: 2000,
-        cssClass:'',
-        msg: _trustAsHtml('You toast <b>msg</b>!'),
-        visible: false
-      });
+      scope = extend($rootScope.$new(true), defaults);
 
       element = scope.element = $compile('<toast></toast>')(scope);
       jqLite(document.body).append(element);
@@ -69,7 +70,8 @@ ToastModule.factory('ngToast', [
     }
 
 
-    function _trustAsHtml(inHtml){
+    /**@private**/
+    function _trustAsHtml(inHtml) {
       return $sce.trustAsHtml(inHtml);
     }
 
