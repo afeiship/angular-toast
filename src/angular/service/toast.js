@@ -17,7 +17,7 @@ ToastModule.factory('ngToast', [
     function initial() {
       scope = extend($rootScope.$new(true), {
         interval: 2000,
-        msg: $sce.trustAsHtml('You toast <b>msg</b>!'),
+        msg: _trustAsHtml('You toast <b>msg</b>!'),
         visible: false
       });
 
@@ -30,7 +30,7 @@ ToastModule.factory('ngToast', [
       //init default options:
       var options = extend(scope, inOptions || {});
       scope.show = function () {
-        scope.msg = $sce.trustAsHtml(options.msg);
+        scope.msg = _trustAsHtml(options.msg);
         scope.visible = true;
         scope.close();
       };
@@ -48,6 +48,11 @@ ToastModule.factory('ngToast', [
     function destroy() {
       scope.$destroy();
       element.remove();
+    }
+
+
+    function _trustAsHtml(inHtml){
+      return $sce.trustAsHtml(inHtml);
     }
 
   }]);
