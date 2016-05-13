@@ -13,10 +13,10 @@ A light simple toast like `IOS/Android system Toast widget`,based on angularjs &
 + sample code:
 ```javascript
 
-var TestModule = angular.module('TestApp', ['toast'])
-    .controller('MainCtrl', function ($scope, ngToast) {
+var TestModule = angular.module('TestApp', ['nx.widget'])
+    .controller('MainCtrl', function ($scope, nxToast) {
       $scope.show = function () {
-        ngToast.show({
+        nxToast.show({
           cssClass:'customizeClass',
           msg: '<b>v</b>asfdjsldafj<em style="color:#f00;">I am safed</em>!'
         });
