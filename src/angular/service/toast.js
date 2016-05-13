@@ -1,61 +1,68 @@
-ToastModule.factory('ngToast', [
-  '$rootScope',
-  '$timeout',
-  '$compile',
-  '$sce',
-  function ($rootScope, $timeout, $compile, $sce) {
+(function () {
+  'use strict';
 
-    var scope, element;
-    var defaults = {
-      interval: 2000,
-      cssClass: '',
-      msg: _trustAsHtml('You toast <b>msg</b>!'),
-      visible: false
-    };
-    initial();
+  var extend = angular.extend;
+  var jqLite = angular.element;
 
-    return {
-      init: initial,
-      show: ngToast,
-      destroy: destroy
-    };
+  angular.module('nx.widget').factory('nxToast', [
+    '$rootScope',
+    '$timeout',
+    '$compile',
+    '$sce',
+    function ($rootScope, $timeout, $compile, $sce) {
 
-    function initial() {
-      scope = extend($rootScope.$new(true), defaults);
+      var scope, element;
+      var defaults = {
+        interval: 2000,
+        cssClass: '',
+        msg: _trustAsHtml('You toast <b>msg</b>!'),
+        visible: false
+      };
+      initial();
 
-      element = scope.element = $compile('<toast></toast>')(scope);
-      jqLite(document.body).append(element);
-    }
-
-    function ngToast(inOptions) {
-
-      //init default options:
-      var options = extend(scope, inOptions || {});
-      scope.show = function () {
-        scope.msg = _trustAsHtml(options.msg);
-        scope.visible = true;
-        scope.close();
+      return {
+        init: initial,
+        show: Toast,
+        destroy: destroy
       };
 
-      scope.close = function () {
-        $timeout(function () {
-          scope.visible = false;
-        }, options.interval);
-      };
+      function initial() {
+        scope = extend($rootScope.$new(true), defaults);
+
+        element = scope.element = $compile('<toast></toast>')(scope);
+        jqLite(document.body).append(element);
+      }
+
+      function Toast(inOptions) {
+
+        //init default options:
+        var options = extend(scope, inOptions || {});
+        scope.show = function () {
+          scope.msg = _trustAsHtml(options.msg);
+          scope.visible = true;
+          scope.close();
+        };
+
+        scope.close = function () {
+          $timeout(function () {
+            scope.visible = false;
+          }, options.interval);
+        };
 
 
-      scope.show();
-    }
+        scope.show();
+      }
 
-    function destroy() {
-      scope.$destroy();
-      element.remove();
-    }
+      function destroy() {
+        scope.$destroy();
+        element.remove();
+      }
 
 
-    /**@private**/
-    function _trustAsHtml(inHtml) {
-      return $sce.trustAsHtml(inHtml);
-    }
+      /**@private**/
+      function _trustAsHtml(inHtml) {
+        return $sce.trustAsHtml(inHtml);
+      }
 
-  }]);
+    }]);
+})();
