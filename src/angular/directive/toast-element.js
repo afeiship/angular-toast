@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('nx.widget')
-    .directive('toast', [function () {
+    .directive('toastElement', [function () {
       return {
         restrict: 'E',
         transclude: true,

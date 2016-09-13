@@ -29,7 +29,7 @@
       function initial() {
         scope = extend($rootScope.$new(true), defaults);
 
-        element = scope.element = $compile('<toast></toast>')(scope);
+        element = scope.element = $compile('<toast-element></toast-element>')(scope);
         jqLite(document.body).append(element);
       }
 
