@@ -1,7 +1,11 @@
+
 {
   "name": "angular-toast",
   "description": "A light simple toast like `IOS/Android system Toast widget`,based on angularjs &amp; sass.",
-  "main": "dist",
+  "main": [
+    "dist/js/angular-toast.js",
+    "dist/css/toast.css"
+  ],
   "authors": [
     "afei"
   ],

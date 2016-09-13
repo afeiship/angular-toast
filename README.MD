@@ -25,6 +25,8 @@ var TestModule = angular.module('TestApp', ['nx.widget'])
 
 ```
 
+## todos:
+- [ ] add toast provider.
+
 ##resouces:
 + http://weui.github.io/weui/#/toast
-
